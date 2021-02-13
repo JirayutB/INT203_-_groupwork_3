@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class=" text-3xl">
+    <div class="text-center justify-center pb-16">Photo Gallery ( {{countUndone}})</div>
+    <section class="overflow-hidden text-gray-700 body-font">
+      <div class="container px-5 py-2 mx-auto lg:pt-2 lg:px-32 ">
+          <div v-for="(task,index) in tasks" class="flex">
+            <img :src="task.image" v-on:click="toggleDone(index)"  class="h-80 w-48 pb-16"/>
+            <div>{{task.article}}</div>
+            <i class="material-icons text-red-400"  v-show="task.done">
+              favorite
+            </i>
+          </div>
+      
+        </div>
+    </section>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
